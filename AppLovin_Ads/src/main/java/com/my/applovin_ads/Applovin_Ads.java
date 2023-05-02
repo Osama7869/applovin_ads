@@ -27,7 +27,7 @@ import com.applovin.sdk.AppLovinSdkUtils;
 
 import java.util.concurrent.TimeUnit;
 
-class Applovin_Ads extends AppCompatActivity {
+public class Applovin_Ads {
     public static MaxAdView adView;
     public static MaxNativeAdLoader nativeAdLoader;
     public static FrameLayout nativeAdLayout;
@@ -35,6 +35,7 @@ class Applovin_Ads extends AppCompatActivity {
 
     public static MaxAd nativeAd;
     //.........Intersital
+
     public static MaxInterstitialAd interstitialAd;
     public static int retryAttempt;
     public static Intent intersitalintent;
@@ -254,19 +255,4 @@ class Applovin_Ads extends AppCompatActivity {
         }
     }
 
-
-    @Override
-    protected void onDestroy() {
-        // Must destroy native ad or else there will be memory leaks.
-        if ( nativeAd != null )
-        {
-            // Call destroy on the native ad from any native ad loader.
-            nativeAdLoader.destroy( nativeAd );
-        }
-
-        // Destroy the actual loader itself
-        nativeAdLoader.destroy();
-
-        super.onDestroy();
-    }
 }
